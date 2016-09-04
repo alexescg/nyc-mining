@@ -318,6 +318,378 @@ public class Listing {
     @Parsed
     private Double calculated_host_listings_count;
 
+    public void setListing_url(String listing_url) {
+        this.listing_url = listing_url;
+    }
+
+    public void setLast_scraped(String last_scraped) {
+        this.last_scraped = last_scraped;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public void setSpace(String space) {
+        this.space = space;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setExperiences_offered(String experiences_offered) {
+        this.experiences_offered = experiences_offered;
+    }
+
+    public void setNeighborhood_overview(String neighborhood_overview) {
+        this.neighborhood_overview = neighborhood_overview;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public void setTransit(String transit) {
+        this.transit = transit;
+    }
+
+    public void setAccess(String access) {
+        this.access = access;
+    }
+
+    public void setInteraction(String interaction) {
+        this.interaction = interaction;
+    }
+
+    public void setHouse_rules(String house_rules) {
+        this.house_rules = house_rules;
+    }
+
+    public void setThumbnail_url(String thumbnail_url) {
+        this.thumbnail_url = thumbnail_url;
+    }
+
+    public void setMedium_url(String medium_url) {
+        this.medium_url = medium_url;
+    }
+
+    public void setPicture_url(String picture_url) {
+        this.picture_url = picture_url;
+    }
+
+    public void setXl_picture_url(String xl_picture_url) {
+        this.xl_picture_url = xl_picture_url;
+    }
+
+    public void setHost_id(Long host_id) {
+        this.host_id = host_id;
+    }
+
+    public void setHost_url(String host_url) {
+        this.host_url = host_url;
+    }
+
+    public void setHost_name(String host_name) {
+        this.host_name = host_name;
+    }
+
+    public void setHost_since(String host_since) {
+        this.host_since = host_since;
+    }
+
+    public void setHost_location(String host_location) {
+        this.host_location = host_location;
+    }
+
+    public void setHost_about(String host_about) {
+        this.host_about = host_about;
+    }
+
+    public void setHost_response_time(String host_response_time) {
+        this.host_response_time = host_response_time;
+    }
+
+    public void setHost_response_rate(String host_response_rate) {
+        this.host_response_rate = host_response_rate;
+    }
+
+    public void setHost_acceptance_rate(String host_acceptance_rate) {
+        this.host_acceptance_rate = host_acceptance_rate;
+    }
+
+    public void setHost_is_superhost(Boolean host_is_superhost) {
+        this.host_is_superhost = host_is_superhost;
+    }
+
+    public void setHost_thumbnail_url(String host_thumbnail_url) {
+        this.host_thumbnail_url = host_thumbnail_url;
+    }
+
+    public void setHost_picture_url(String host_picture_url) {
+        this.host_picture_url = host_picture_url;
+    }
+
+    public void setHost_neighbourhood(String host_neighbourhood) {
+        this.host_neighbourhood = host_neighbourhood;
+    }
+
+    public void setHost_listings_count(Long host_listings_count) {
+        this.host_listings_count = host_listings_count;
+    }
+
+    public void setHost_total_listings_count(Double host_total_listings_count) {
+        this.host_total_listings_count = host_total_listings_count;
+    }
+
+    public void setHost_verifications(String host_verifications) {
+        this.host_verifications = host_verifications;
+    }
+
+    public void setHost_has_profile_pic(Boolean host_has_profile_pic) {
+        this.host_has_profile_pic = host_has_profile_pic;
+    }
+
+    public void setHost_identity_verified(Boolean host_identity_verified) {
+        this.host_identity_verified = host_identity_verified;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setNeighbourhood(String neighbourhood) {
+        this.neighbourhood = neighbourhood;
+    }
+
+    public void setNeighbourhood_cleansed(String neighbourhood_cleansed) {
+        this.neighbourhood_cleansed = neighbourhood_cleansed;
+    }
+
+    public void setNeighbourhood_group_cleansed(String neighbourhood_group_cleansed) {
+        this.neighbourhood_group_cleansed = neighbourhood_group_cleansed;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
+    }
+
+    public void setSmart_location(String smart_location) {
+        this.smart_location = smart_location;
+    }
+
+    public void setCountry_code(String country_code) {
+        this.country_code = country_code;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setIs_location_exact(Boolean is_location_exact) {
+        this.is_location_exact = is_location_exact;
+    }
+
+    public void setProperty_type(String property_type) {
+        this.property_type = property_type;
+    }
+
+    public void setRoom_type(String room_type) {
+        this.room_type = room_type;
+    }
+
+    public void setAccommodates(Double accommodates) {
+        this.accommodates = accommodates;
+    }
+
+    public void setBathrooms(Double bathrooms) {
+        this.bathrooms = bathrooms;
+    }
+
+    public void setBedrooms(Double bedrooms) {
+        this.bedrooms = bedrooms;
+    }
+
+    public void setBeds(Double beds) {
+        this.beds = beds;
+    }
+
+    public void setBed_type(String bed_type) {
+        this.bed_type = bed_type;
+    }
+
+    public void setAmenities(String amenities) {
+        this.amenities = amenities;
+    }
+
+    public void setSquare_feet(String square_feet) {
+        this.square_feet = square_feet;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setWeekly_price(String weekly_price) {
+        this.weekly_price = weekly_price;
+    }
+
+    public void setMonthly_price(String monthly_price) {
+        this.monthly_price = monthly_price;
+    }
+
+    public void setSecurity_deposit(String security_deposit) {
+        this.security_deposit = security_deposit;
+    }
+
+    public void setCleaning_fee(String cleaning_fee) {
+        this.cleaning_fee = cleaning_fee;
+    }
+
+    public void setGuests_included(Integer guests_included) {
+        this.guests_included = guests_included;
+    }
+
+    public void setExtra_people(String extra_people) {
+        this.extra_people = extra_people;
+    }
+
+    public void setMinimum_nights(Double minimum_nights) {
+        this.minimum_nights = minimum_nights;
+    }
+
+    public void setMaximum_nights(Double maximum_nights) {
+        this.maximum_nights = maximum_nights;
+    }
+
+    public void setCalendar_updated(String calendar_updated) {
+        this.calendar_updated = calendar_updated;
+    }
+
+    public void setHas_availability(String has_availability) {
+        this.has_availability = has_availability;
+    }
+
+    public void setAvailability_30(Double availability_30) {
+        this.availability_30 = availability_30;
+    }
+
+    public void setAvailability_60(Double availability_60) {
+        this.availability_60 = availability_60;
+    }
+
+    public void setAvailability_90(Double availability_90) {
+        this.availability_90 = availability_90;
+    }
+
+    public void setAvailability_365(Double availability_365) {
+        this.availability_365 = availability_365;
+    }
+
+    public void setCalendar_last_scraped(String calendar_last_scraped) {
+        this.calendar_last_scraped = calendar_last_scraped;
+    }
+
+    public void setNumber_of_reviews(Double number_of_reviews) {
+        this.number_of_reviews = number_of_reviews;
+    }
+
+    public void setFirst_review(String first_review) {
+        this.first_review = first_review;
+    }
+
+    public void setLast_review(String last_review) {
+        this.last_review = last_review;
+    }
+
+    public void setReview_scores_rating(Double review_scores_rating) {
+        this.review_scores_rating = review_scores_rating;
+    }
+
+    public void setReview_scores_accuracy(Double review_scores_accuracy) {
+        this.review_scores_accuracy = review_scores_accuracy;
+    }
+
+    public void setReview_scores_cleanliness(Double review_scores_cleanliness) {
+        this.review_scores_cleanliness = review_scores_cleanliness;
+    }
+
+    public void setReview_scores_checkin(Double review_scores_checkin) {
+        this.review_scores_checkin = review_scores_checkin;
+    }
+
+    public void setReview_scores_communication(Double review_scores_communication) {
+        this.review_scores_communication = review_scores_communication;
+    }
+
+    public void setReview_scores_location(Double review_scores_location) {
+        this.review_scores_location = review_scores_location;
+    }
+
+    public void setReview_scores_value(Double review_scores_value) {
+        this.review_scores_value = review_scores_value;
+    }
+
+    public void setRequires_license(Boolean requires_license) {
+        this.requires_license = requires_license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public void setJurisdiction_names(String jurisdiction_names) {
+        this.jurisdiction_names = jurisdiction_names;
+    }
+
+    public void setInstant_bookable(Boolean instant_bookable) {
+        this.instant_bookable = instant_bookable;
+    }
+
+    public void setCancellation_policy(String cancellation_policy) {
+        this.cancellation_policy = cancellation_policy;
+    }
+
+    public void setRequire_guest_profile_picture(Boolean require_guest_profile_picture) {
+        this.require_guest_profile_picture = require_guest_profile_picture;
+    }
+
+    public void setRequire_guest_phone_verification(Boolean require_guest_phone_verification) {
+        this.require_guest_phone_verification = require_guest_phone_verification;
+    }
+
+    public void setCalculated_host_listings_count(Double calculated_host_listings_count) {
+        this.calculated_host_listings_count = calculated_host_listings_count;
+    }
+
+    public void setReviews_per_month(Double reviews_per_month) {
+        this.reviews_per_month = reviews_per_month;
+    }
+
     @Parsed(defaultNullRead = "0")
     private Double reviews_per_month;
 

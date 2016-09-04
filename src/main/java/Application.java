@@ -19,7 +19,6 @@ public class Application {
         List<Listing> listings = parser.parseCsv();
         ListingManipulation listingManipulation = new ListingManipulation(listings);
         listingManipulation.ignoreRowsWithNullField("has_availability");
-        System.out.println(listingManipulation.getListings().size());
 
     }
 
