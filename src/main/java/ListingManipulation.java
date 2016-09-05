@@ -120,6 +120,9 @@ public class ListingManipulation {
         }
     }
 
+    /**
+     * Using the average obtained from daily and weekly prices from apartments, calculate using average estimate of a weekly price in case there is none stated.
+     */
     public void fillMissingWeeklyPrices() {
         BigDecimal weeklyPriceIncrease = getWeeklyPriceIncreaseAsPercent();
         listings.stream().filter(listing -> listing.getWeekly_price() == null).forEach(listing -> {

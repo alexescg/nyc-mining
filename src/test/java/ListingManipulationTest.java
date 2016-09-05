@@ -67,46 +67,4 @@ public class ListingManipulationTest {
         listingManipulation.fetchWeeklyPrices();
     }
 
-    private BigDecimal getWeeklyPriceIncreaseAsPercent(BigDecimal dailyApartmentPriceAverage, BigDecimal weeklyApartmentPriceAverage) {
-        return dailyApartmentPriceAverage.divide(weeklyApartmentPriceAverage, 2, RoundingMode.HALF_UP);
-    }
-
-    private List<Listing> getApartmentListings(List<Listing> listings) {
-        return listings
-                .stream()
-                .filter(listing -> listing.getProperty_type() != null)
-                .filter(listing -> listing.getProperty_type().equals("Apartment"))
-                .collect(Collectors.toList());
-    }
-
-
-    private BigDecimal toDollars(String amount) {
-        final NumberFormat format = NumberFormat.getNumberInstance(Locale.US);
-        if (format instanceof DecimalFormat) {
-            ((DecimalFormat) format).setParseBigDecimal(true);
-        }
-        try {
-            return (BigDecimal) format.parse(amount.replaceAll("[^\\d.,]", ""));
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return BigDecimal.ZERO;
-        }
-    }
-
-    private BigDecimal getDailyPriceAverage(List<Listing> listings) {
-        return listings.stream()
-                .map(listing -> toDollars(listing.getPrice()))
-                .reduce(BigDecimal.ZERO, BigDecimal::add)
-                .divide(new BigDecimal(listings.size()), 2, RoundingMode.HALF_UP);
-
-    }
-
-    private BigDecimal getWeeklyPriceAverage(List<Listing> listings) {
-        return listings.stream()
-                .filter(listing -> listing.getWeekly_price() != null)
-                .map(listing -> toDollars(listing.getWeekly_price()))
-                .reduce(BigDecimal.ZERO, BigDecimal::add)
-                .divide(new BigDecimal(listings.stream().filter(listing -> listing.getWeekly_price() != null).count()), 2, RoundingMode.HALF_UP);
-    }
-
 }
