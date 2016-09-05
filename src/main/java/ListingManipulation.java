@@ -2,8 +2,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -91,5 +97,59 @@ public class ListingManipulation {
      */
     private String capitalize(String toCapitalize) {
         return Character.toUpperCase(toCapitalize.charAt(0)) + toCapitalize.substring(1);
+    }
+
+    public void filterApartmentListings() {
+        listings = listings
+                .stream()
+                .filter(listing -> listing.getProperty_type() != null)
+                .filter(listing -> listing.getProperty_type().equals("Apartment"))
+                .collect(Collectors.toList());
+    }
+
+    private BigDecimal toDollars(String amount) {
+        final NumberFormat format = NumberFormat.getNumberInstance(Locale.US);
+        if (format instanceof DecimalFormat) {
+            ((DecimalFormat) format).setParseBigDecimal(true);
+        }
+        try {
+            return (BigDecimal) format.parse(amount.replaceAll("[^\\d.,]", ""));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return BigDecimal.ZERO;
+        }
+    }
+
+    public void fillMissingWeeklyPrices() {
+        listings.stream().filter(listing -> listing.getWeekly_price() == null).forEach(listing -> {
+            listing.setWeekly_price(new StringBuilder("$").append(toDollars(listing.getPrice()).multiply(getWeeklyPriceIncreaseAsPercent()).toString()).toString());
+        });
+    }
+
+    private BigDecimal getWeeklyPriceIncreaseAsPercent() {
+        return getDailyPriceAverage().divide(getWeeklyPriceAverage(), 2, RoundingMode.HALF_UP);
+    }
+
+    private BigDecimal getDailyPriceAverage() {
+        return listings.stream()
+                .map(listing -> toDollars(listing.getPrice()))
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .divide(new BigDecimal(listings.size()), 2, RoundingMode.HALF_UP);
+
+    }
+
+    private BigDecimal getWeeklyPriceAverage() {
+        return listings.stream()
+                .filter(listing -> listing.getWeekly_price() != null)
+                .map(listing -> toDollars(listing.getWeekly_price()))
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .divide(new BigDecimal(listings.stream().filter(listing -> listing.getWeekly_price() != null).count()), 2, RoundingMode.HALF_UP);
+    }
+
+    public void fetchWeeklyPrices() {
+        listings.stream().forEach(listing -> System.out.println(
+                new StringBuilder("type: ").append(listing.getProperty_type())
+                        .append(" daily: ").append(listing.getPrice())
+                        .append(" weekly: ").append(listing.getWeekly_price())));
     }
 }
