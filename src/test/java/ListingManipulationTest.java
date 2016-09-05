@@ -62,20 +62,9 @@ public class ListingManipulationTest {
     @Test
     public void getAverageWeeklyFromAparments() {
         ListingManipulation listingManipulation = new ListingManipulation(listings);
-        List<Listing> apartmentlistings = getApartmentListings(listingManipulation.getListings());
-
-        BigDecimal dailyApartmentPriceAverage = getDailyPriceAverage(apartmentlistings);
-        BigDecimal weeklyApartmentPriceAverage = getWeeklyPriceAverage(apartmentlistings);
-        BigDecimal weeklyAverageAsPercent = getWeeklyPriceIncreaseAsPercent(weeklyApartmentPriceAverage, dailyApartmentPriceAverage);
-
-        apartmentlistings.stream().filter(listing -> listing.getWeekly_price() == null).forEach(listing -> {
-            listing.setWeekly_price(new StringBuilder("$").append(toDollars(listing.getPrice()).multiply(weeklyAverageAsPercent).toString()).toString());
-        });
-
-        apartmentlistings.stream().forEach(listing -> System.out.println(
-                new StringBuilder("type: ").append(listing.getProperty_type())
-                        .append(" daily: ").append(listing.getPrice())
-                        .append(" weekly: ").append(listing.getWeekly_price())));
+        listingManipulation.filterApartmentListings();
+        listingManipulation.fillMissingWeeklyPrices();
+        listingManipulation.fetchWeeklyPrices();
     }
 
     private BigDecimal getWeeklyPriceIncreaseAsPercent(BigDecimal dailyApartmentPriceAverage, BigDecimal weeklyApartmentPriceAverage) {

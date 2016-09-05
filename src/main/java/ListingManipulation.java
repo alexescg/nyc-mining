@@ -121,13 +121,14 @@ public class ListingManipulation {
     }
 
     public void fillMissingWeeklyPrices() {
+        BigDecimal weeklyPriceIncrease = getWeeklyPriceIncreaseAsPercent();
         listings.stream().filter(listing -> listing.getWeekly_price() == null).forEach(listing -> {
-            listing.setWeekly_price(new StringBuilder("$").append(toDollars(listing.getPrice()).multiply(getWeeklyPriceIncreaseAsPercent()).toString()).toString());
+            listing.setWeekly_price(new StringBuilder("$").append(toDollars(listing.getPrice()).multiply(weeklyPriceIncrease).toString()).toString());
         });
     }
 
     private BigDecimal getWeeklyPriceIncreaseAsPercent() {
-        return getDailyPriceAverage().divide(getWeeklyPriceAverage(), 2, RoundingMode.HALF_UP);
+        return getWeeklyPriceAverage().divide(getDailyPriceAverage(), 2, RoundingMode.HALF_UP);
     }
 
     private BigDecimal getDailyPriceAverage() {
